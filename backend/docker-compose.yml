@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: "."
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATA_SOURCE: jdbc:postgresql://postgres:5432/backend
+      SPRING_DATA_SOURCE_USERNAME: postgres
+      SPRING_DATA_SOURCE_PASSWORD: postgres
+      SPRING_DATA_SOURCE_DDL_AUTO: create
+  postgres:
+    image: postgres:12.0
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: backend
+    ports:
+      - "5436:5432"

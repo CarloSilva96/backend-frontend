@@ -1,0 +1,15 @@
+.cancelar {
+  background: blue;
+  color: white;
+}
+.excluir:hover {
+  background: red;
+  color: white;
+}
+
+::ng-deep .my-custom-dialog-class {
+  mat-dialog-container {
+    padding: 0;
+    width: 500px;
+  }
+}

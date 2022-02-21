@@ -1,0 +1,33 @@
+<mat-table [dataSource]="produtos" class="my-custom-dialog-class">
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+    <mat-cell *matCellDef="let produto"> {{produto.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef>Nome </mat-header-cell>
+    <mat-cell *matCellDef="let produto"> {{produto.nome}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="categoria">
+    <mat-header-cell *matHeaderCellDef>Categoria</mat-header-cell>
+    <mat-cell *matCellDef="let produto"> {{produto.categoria}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="adicionar">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let produto">
+      <button color="primary" mat-fab
+              matTooltip="Adicionar"
+              (click)="adicionarProduto(produto); $event.stopPropagation();"
+              class="align-select-buton"
+      >
+        <mat-icon>add_circle_outline</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="atributosProdutos"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: atributosProdutos " ></mat-row>
+</mat-table>

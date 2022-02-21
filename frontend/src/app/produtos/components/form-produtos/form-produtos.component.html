@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>{{ editar ? "Atualizar Produto" : "Cadastrar Produto" }}</h1>
+  <form [formGroup]="formProduto" novalidate>
+    <mat-card  fxLayout="colunm">
+      <mat-card-content>
+        <mat-form-field appearance="fill" class="margin">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" id="nome" type="text" placeholder="Nome">
+          <mat-error *ngIf="formProduto.controls['nome'].hasError('required')">
+           Nome Obrigatório.
+          </mat-error>
+          <mat-error *ngIf="formProduto.controls['nome'].hasError('minlength')">
+            Nome deve ter no mínimo 3 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="margin">
+          <mat-label>Código de Barras</mat-label>
+          <input matInput formControlName="codigoDeBarras" id="codigo-barras" type="text" placeholder="Código de barras">
+          <mat-error *ngIf="formProduto.controls['nome'].hasError('required')">
+            Código de barras obrigatório.
+          </mat-error>
+          <mat-error *ngIf="formProduto.controls['codigoDeBarras'].hasError('minlength') || formProduto.controls['codigoDeBarras'].hasError('maxlength')">
+            Código de barras deve conter 13 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="margin">
+          <mat-label>Categoria</mat-label>
+          <input matInput formControlName="categoria" id="categoria" type="text" placeholder="Categoria">
+          <mat-error *ngIf="formProduto.controls['nome'].hasError('required')">
+            Categoria obrigatória.
+          </mat-error>
+          <mat-error *ngIf="formProduto.controls['categoria'].hasError('minlength')">
+            Categoria deve ter no mínimo 3 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="margin">
+          <mat-label>Preço</mat-label>
+          <input matInput formControlName="preco" id="preco" type="text" placeholder="Preço" currencyMask>
+        </mat-form-field>
+
+        <mat-card-actions>
+
+          <button mat-raised-button (click)="voltar()">Voltar</button>
+          <button mat-raised-button color="primary" *ngIf="!editar" (click)="criarProduto()">Salvar</button>
+          <button mat-raised-button color="primary" *ngIf="editar" (click)="atualizarProduto()">Atualizar</button>
+        </mat-card-actions>
+
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

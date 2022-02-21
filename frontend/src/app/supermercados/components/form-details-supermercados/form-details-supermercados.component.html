@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>{{ editar ? "Atualizar Supermercado" : "Cadastrar Supermercado" }}</h1>
+  <form [formGroup]="formSupermercado" novalidate>
+    <mat-card  fxLayout="colunm">
+      <mat-card-content>
+
+        <mat-form-field *ngIf="true" appearance="fill" class="margin">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" id="nome" type="text" placeholder="Nome" >
+          <mat-error *ngIf="formSupermercado.controls['nome'].hasError('required')">
+            Nome Obrigatório.
+          </mat-error>
+          <mat-error *ngIf="formSupermercado.controls['nome'].hasError('minlength')">
+            Nome deve ter no mínimo 3 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="margin">
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone" id="telefone" type="text" placeholder="Telefone"
+            mask="(00)00000-0000 || (00)0000-0000"
+          >
+          <mat-error *ngIf="formSupermercado.controls['telefone'].hasError('required')">
+            Código de barras obrigatório.
+          </mat-error>
+          <mat-error *ngIf="formSupermercado.controls['telefone'].hasError('minlength') || formSupermercado.controls['telefone'].hasError('maxlength')">
+            Telefone inválido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="margin">
+          <mat-label>Endereço</mat-label>
+          <input matInput formControlName="endereco" id="endereco" type="text" placeholder="Endereço">
+          <mat-error *ngIf="formSupermercado.controls['endereco'].hasError('required')">
+            Endereço obrigatório.
+          </mat-error>
+          <mat-error *ngIf="formSupermercado.controls['endereco'].hasError('minlength')">
+            Endereço deve ter no mínimo 10 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button mat-raised-button (click)="voltar()">Voltar</button>
+          <button mat-raised-button color="primary" *ngIf="!editar" (click)="criarSupermercado()">Salvar</button>
+          <button mat-raised-button color="primary" *ngIf="editar" (click)="atualizarSupermercado()">Atualizar</button>
+        </mat-card-actions>
+
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+.add-button {
+  position: absolute;
+  right: 400px;
+  top: 240px;
+}
+
+.table-width {
+  width: 750px;
+}
+
+.mat-input-element {
+  color: black;
+}
+
+
+::ng-deep .my-custom-dialog-class {
+  mat-dialog-container {
+    padding: 0;
+    width: 800px;
+    border: 1px solid darkblue;
+  }
+}

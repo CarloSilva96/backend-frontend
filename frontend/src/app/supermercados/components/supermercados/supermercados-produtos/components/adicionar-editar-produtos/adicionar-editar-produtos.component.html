@@ -1,0 +1,21 @@
+<div mat-dialog-content>
+  <h3 align="center">Preço do Produto</h3>
+  <mat-form-field appearance="fill" class="width-form">
+    <mat-label>Preço</mat-label>
+    <div>
+      <input
+        matInput [(ngModel)]="data.preco" required
+        #preco="ngModel" name="preco"
+        currencyMask
+      >
+      <mat-error *ngIf="preco.errors?.['required']">
+        Preço obrigatório.
+      </mat-error>
+    </div>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button class="cancelar" (click)="onNoClick()">Cancelar</button>
+  <button *ngIf="data.idProduto === undefined" mat-button class="salvar" [disabled]="!preco.valid" [mat-dialog-close]="data" cdkFocusInitial>Atualizar</button>
+  <button mat-button *ngIf="data.idProduto" class="salvar" [disabled]="!preco.valid" [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+</div>
