@@ -9,10 +9,11 @@
 
 ## Rodar os projetos localmente
 
-### Caso não queira acessar o projeto usando docker entre em cada pasta ./backend e ./frontend abra em um editor de sua preferência e rode o projeto. 
+### Caso não queira acessar o projeto usando docker entre em cada pasta ./backend e ./frontend abra uma IDE de sua preferência e rode o projeto. 
 #### No ./backend terá que configurar o ``` application-dev.properties  ``` o banco de dados para de acordo com suas configuracões de url de conexão do bd, usuário e senha, ter o postgres e o banco criado.
 
-#### No ./front mude as seguintes os valores das variáveis de ambiente no seguinte local: ``` ./frontend/src/environments ```,   abras os arquivos: ``` environment.prod.ts ``` e ``` environment.ts ``` e mude o valor de ```  baseUrl: 'http://backend:8080/api' ``` para ```  baseUrl: 'http://localhost:8080/api' ``` que é o caminho padrão onde o springboot sobe a aplicação, caso tenha mudado coloque a porta de acordo com a que escolheu
+#### No ./front mude as seguintes os valores das variáveis de ambiente no seguinte local: ``` ./frontend/src/environments ```,   abras os arquivos: ``` environment.prod.ts ``` e ``` environment.ts ``` e mude o valor de ```  baseUrl: 'http://backend:8080/api' ``` para ```  baseUrl: 'http://localhost:8080/api' ``` que é o caminho padrão onde o springboot sobe a aplicação, caso tenha mudado coloque a porta de acordo com a que escolheu.
+#### para executar: 1) ``` npm install ```  build o projeto ou execute com a versão do angular cli 13.1.3
 
 ## Para acessar documentação dos end-points acesse a url abaixo:
 ``` http://localhost:8080/api/swagger-ui/index.html ``` 
